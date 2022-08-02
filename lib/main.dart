@@ -78,7 +78,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   maxLength: 1,
                 ),
               ],
-            )
+            ),
+            Text('$result'),
+            Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('+'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('-'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('*'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('/'),
+                ),
+              ],
+            ),
           ],
         ),
       ),
