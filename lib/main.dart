@@ -30,13 +30,29 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int result = 0;
 
-  TextEditingController firstNum = TextEditingController();
-  TextEditingController secondNum = TextEditingController();
+  TextEditingController firstInput = TextEditingController();
+  TextEditingController secondInput = TextEditingController();
 
-  void _incrementCounter() {
-    setState(() {
-      result++;
-    });
+  void changeResult(String operation) {
+    int firstNum = int.parse(firstInput.text); // позволяет получать целое число из строки
+    int secondNum = int.parse(secondInput.text);
+    if (operation == '+') {
+      setState(() {
+        result = firstNum + secondNum;
+      });
+    } else if (operation == '-') {
+      setState(() {
+        result = firstNum - secondNum;
+      });
+    } else if (operation == '*') {
+      setState(() {
+        result = firstNum * secondNum;
+      });
+    } else if (operation == '/') {
+      setState(() {
+        result = firstNum ~/ secondNum; //разделение с пререходом к типу int
+      });
+    }
   }
 
   @override
@@ -52,12 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               children: [
                 TextField(
-                  controller: firstNum,
+                  controller: firstInput,
                   keyboardType: TextInputType.number,
                   maxLength: 1,
                 ),
                 TextField(
-                  controller: secondNum,
+                  controller: secondInput,
                   keyboardType: TextInputType.number,
                   maxLength: 1,
                 ),
@@ -65,11 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
