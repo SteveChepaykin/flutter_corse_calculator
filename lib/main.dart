@@ -72,30 +72,51 @@ class _MyHomePageState extends State<MyHomePage> {
                   keyboardType: TextInputType.number,
                   maxLength: 1,
                 ),
-                TextField(
+                SizedBox(width: 30,), //добавлено чтобы дать больше пространства между
+                TextField( 
                   controller: secondInput,
                   keyboardType: TextInputType.number,
                   maxLength: 1,
                 ),
               ],
             ),
-            Text('$result'),
+            SizedBox(
+              height: 30,
+            ), //добавлено чтобы дать больше пространства вокруг
+            Text(
+              '$result',
+              style: TextStyle(
+                fontSize: 30, //текст вывода результата будет большим
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ), //добавлено чтобы дать больше пространства вокруг
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween, //красиво распределяет все кнопки по ширине экрана
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    changeResult('+');
+                  },
                   child: Text('+'),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    changeResult('-');
+                  },
                   child: Text('-'),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    changeResult('*');
+                  },
                   child: Text('*'),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    changeResult('/');
+                  },
                   child: Text('/'),
                 ),
               ],
